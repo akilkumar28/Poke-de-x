@@ -9,18 +9,23 @@
 import UIKit
 import AVFoundation
 
-class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pokearray = [Pokemon]()
+    var changingarray = [Pokemon]()
     var songPlayer: AVAudioPlayer!
+    var isSearching = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         parseCsvFile()
         song()
     }
@@ -64,11 +69,18 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
-            
-            let pokemon = pokearray[indexPath.row]
-            cell.ConfigureCell(pokemon)
+            let poke : Pokemon!
+            if isSearching {
+                 poke = changingarray[indexPath.row]
+                cell.ConfigureCell(poke)
+                cell.cornerRadius()
+                return cell
+            }
+            poke = pokearray[indexPath.row]
+            cell.ConfigureCell(poke)
             cell.cornerRadius()
             return cell
+            
         } else {
             return UICollectionViewCell()
         }
@@ -76,6 +88,9 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        if isSearching {
+            return changingarray.count
+        }
         return pokearray.count
     }
     
@@ -102,6 +117,24 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             songPlayer.play()
             songPlayer.numberOfLoops = -1
             sender.alpha = 1.0
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            isSearching = false
+            collectionView.reloadData()
+            view.endEditing(true)
+        } else {
+            isSearching = true
+            
+           let lower = searchBar.text?.lowercased()
+            changingarray = pokearray.filter({$0.name.range(of: lower!) != nil})
+            collectionView.reloadData()
         }
     }
 
