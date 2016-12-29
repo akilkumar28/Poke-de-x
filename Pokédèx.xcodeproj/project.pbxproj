@@ -13,6 +13,7 @@
 		8914F37C1E14FCD5009A4EA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8914F37A1E14FCD5009A4EA5 /* Main.storyboard */; };
 		8914F37E1E14FCD5009A4EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8914F37D1E14FCD5009A4EA5 /* Assets.xcassets */; };
 		8914F3811E14FCD5009A4EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8914F37F1E14FCD5009A4EA5 /* LaunchScreen.storyboard */; };
+		8914F3891E1500B7009A4EA5 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8914F3881E1500B7009A4EA5 /* pokemon.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8914F37D1E14FCD5009A4EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8914F3801E14FCD5009A4EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8914F3821E14FCD5009A4EA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8914F3881E1500B7009A4EA5 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		A93388519E1DF1FCA6572925 /* Pods-Pokédèx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokédèx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokédèx/Pods-Pokédèx.debug.xcconfig"; sourceTree = "<group>"; };
 		AA9016A7DEB0FDD3A05ED1CC /* Pods_Poke_de_x.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poke_de_x.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				8914F3781E14FCD5009A4EA5 /* ViewController.swift */,
 				8914F37A1E14FCD5009A4EA5 /* Main.storyboard */,
 				8914F37D1E14FCD5009A4EA5 /* Assets.xcassets */,
+				8914F3881E1500B7009A4EA5 /* pokemon.csv */,
 				8914F37F1E14FCD5009A4EA5 /* LaunchScreen.storyboard */,
 				8914F3821E14FCD5009A4EA5 /* Info.plist */,
 			);
@@ -152,6 +155,7 @@
 			files = (
 				8914F3811E14FCD5009A4EA5 /* LaunchScreen.storyboard in Resources */,
 				8914F37E1E14FCD5009A4EA5 /* Assets.xcassets in Resources */,
+				8914F3891E1500B7009A4EA5 /* pokemon.csv in Resources */,
 				8914F37C1E14FCD5009A4EA5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A93388519E1DF1FCA6572925 /* Pods-Pokédèx.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pokédèx/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -346,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D0D26E01250888BD1BD3ABB /* Pods-Pokédèx.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Pokédèx/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -374,6 +380,7 @@
 				8914F3871E14FCD5009A4EA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
