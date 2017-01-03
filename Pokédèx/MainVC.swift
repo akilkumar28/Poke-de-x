@@ -52,7 +52,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         do{
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
-//            print(rows)
+            print(rows)
             
             for row in rows {
                 let name = row["identifier"]
